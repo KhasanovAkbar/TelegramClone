@@ -1,4 +1,4 @@
-package univ.tuit.telegramclone.entity.enums;
+package univ.tuit.telegramclone.persistant.model.enums;
 
 public enum UserStatus {
 
