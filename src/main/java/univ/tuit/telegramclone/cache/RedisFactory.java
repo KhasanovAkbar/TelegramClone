@@ -7,21 +7,9 @@ import redis.clients.jedis.JedisPoolConfig;
 
 public class RedisFactory {
 
-    @Value("${cache.redis.host}")
-    private static String host = "localhost";
-
-    @Value("${cache.redis.port}")
-    private static Integer port = 6379;
-
-    @Value("${cache.redis.timeout}")
-    private static Integer timeout = 5000;
-
-    @Value("${cache.redis.password}")
-    private static String password = "1234";
-
-    public RedisFactory() {
-    }
-
+    private static final String host = "localhost";
+    private static final Integer port = 6379;
+    private static final Integer timeout = 10000;
     private static final JedisPool jedisPool;
 
     static {
@@ -32,12 +20,11 @@ public class RedisFactory {
                 poolConfig,
                 host,
                 port,
-                timeout,
-                password
+                timeout
         );
     }
 
-    public static Jedis getConnection(){
+    public static Jedis getConnection() {
         return jedisPool.getResource();
     }
 }

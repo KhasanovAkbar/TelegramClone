@@ -8,4 +8,6 @@ import univ.tuit.telegramclone.persistant.model.AccessToken;
 public interface AccessTokenRepository extends JpaRepository<AccessToken, Long> {
 
     AccessToken findByUserId(Long userId);
+
+    AccessToken findByToken(String token);
 }
